@@ -15,7 +15,29 @@
                     @endif
 
                     {{ __('You are logged in!') }}
-                    {{ $name }}
+                    <table>
+                        <thead>
+                            <th>Transaction name</th>
+                            <th>amount</th>
+                            <th>categoty</th>
+                            <th>descriptio</th>
+                            <th>date</th>
+                        </thead>
+                        <tbody>
+                            @foreach ($transactions as $transaction)
+                            <tr>
+                                <td>{{ $transaction->transaction_name }}</td>
+                                <td>{{ $transaction->transaction_amount }}</td>
+                                <td>{{ $transaction->transaction_type_id }}</td>
+                                <td>{{ $transaction->transaction_description }}</td>
+                                <td>{{ $transaction->transaction_date }}</td>
+                            </tr>
+                            @endforeach
+                            
+                        </tbody>
+                    
+                    
+                </table>
 
                     
                 </div>

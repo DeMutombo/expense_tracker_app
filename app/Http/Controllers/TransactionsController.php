@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transactions;
 use Illuminate\Http\Request;
 
 class TransactionsController extends Controller
 {
     public function index()
     {
-        return view('home', ['name' => 'Mutombo']);
+        $transactions = Transactions::all();
+        // $transaction = Transactions::find(1)->categories->get();
+        return view('home', ['transactions' => $transactions]);
     }
 }
